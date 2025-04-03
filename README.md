@@ -75,18 +75,18 @@ status:error AND message:"Invalid"
 
 **Objetivo:** Visibilidad sobre fallos silenciosos que comprometen el flujo transaccional.
 
-### Monitor 4: Error Outlier por módulo `exception`
+### Monitor 4: Spike in `exception` module
 
-**Descripción:** Errores identificados por Datadog como patrones anómalos.
+**Descripción:** Detecta aumentos inusuales de errores provenientes del módulo `exception`, comúnmente asociados a errores internos severos.
 
 **Consulta:**  
 ```text
 @module:exception AND status:error
 ```
 
-**Condición:** > 30% de los errores del sistema en 1 hora.
+**Condición:** Más de 50 errores en la última hora.
 
-**Objetivo:** Priorizar módulos vulnerables con mayor probabilidad de explotación o error crítico.
+**Objetivo:** Priorizar módulos vulnerables con alta frecuencia de fallos para detección proactiva de puntos de falla crítica o explotación.
 
 ### Monitor 5: `Not Found` con `report not found`
 
